@@ -1,6 +1,6 @@
 # 6250
 
-## this course was an exercise in understanding how command shells work by builing one, as well as other fun OS things.
+## This course was an exercise in understanding how command shells work by building one, as well as other fun OS things.
 
 
 
