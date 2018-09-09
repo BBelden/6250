@@ -1,0 +1,5 @@
+#!/bin/sh
+
+## run this server in window 1
+
+./p5s 5588

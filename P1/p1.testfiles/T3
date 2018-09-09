@@ -1,0 +1,16 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+envprt
+cd /tmp
+prt -
+pwd
+envprt
+EOF
+
+
+## ---------------------
+
+$1/p1 < TEMPIN
+
+# rm -f TEMPIN

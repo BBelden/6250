@@ -1,0 +1,21 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt set limits to 999s 4mb
+lim 999 4
+prt -
+
+prt run mallocing lots of space
+./BIGMEMPGM 7
+prt -
+
+prt run mallocing lots of space  AGAIN
+./BIGMEMPGM 7
+prt -
+EOF
+
+## ---------------------
+
+p2 < TEMPIN
+
+# rm -f TEMPIN

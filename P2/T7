@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt favor builtin over pgm
+prt howdy there
+prt -
+
+prt run the prt pgm
+./prt
+prt -
+EOF
+
+## ---------------------
+
+p2 < TEMPIN
+
+# rm -f TEMPIN

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt howdy
+set v1 value1
+prt v1 is \$v1
+prt ======== howdy value1
+prt -
+
+envset v1 envvalue1
+envprt
+prt ======== aoscwd aospath envvalue1
+prt -
+
+prt v1 is \$v1    # prints the shell var
+unset v1
+prt v1 is \$v1    # prints env var
+prt ======== value1 envvalue1
+prt -
+
+prt remove v1 from environment  # comment that should not print
+envunset v1
+envprt
+prt ======== aoscwd aospath (no v1)
+prt -
+EOF
+
+## ---------------------
+
+#$1/p1 < TEMPIN
+p1 < TEMPIN
+
+# rm -f TEMPIN

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+./p5c system64 5588 60  /nfshome/rbutler/public/courses/aos/TIMEPGM 7 &
+
+echo
+echo "started TIMEPGM 7 --------"
+echo
+
+sleep 1
+
+./p5c system64 5588 60  /nfshome/rbutler/public/courses/aos/TIMEPGM 3 
+
+echo
+echo "started TIMEPGM 3 --------"
+echo

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+./p6 p6f1
+
+./p6 p6f2
+
+./p6 not_there
+

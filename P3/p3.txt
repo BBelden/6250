@@ -1,0 +1,55 @@
+
+                        Advanced Operating Systems
+                                 Fall 2016
+
+
+turnin id:  aos_p3
+
+
+Enhance the shell from p2 to support the new facilities described below.
+
+
+
+Enhance the shell's capabilities with new support for handling signals so
+that you can provide some job control.  Assume that there will never be 
+more than 4 processes to manage (foreground, background, suspended).
+Also, for simplicity, assume that no task placed into the background will
+attempt to read from stdin.
+
+    ^Z on fg process suspends it
+        Cause the foreground process to be suspended.
+
+    jobs
+        Builtin command to list current jobs (suspended or background).
+        List each with a num beside it to be used in following commands.
+
+    kill num
+        Builtin command to cause the specified process to be sent
+        the -KILL signal.
+
+    fg num
+        Builtin command to cause the specified suspended or background
+        process to become the foreground process.  In this context, the
+        foreground process is merely the one which the shell is waiting
+        for to complete.
+
+    bg num
+        Builtin command to cause the specified suspended process to
+        run in the background.  The shell will not wait for the process
+        to complete because it is in the background.  Of course, the 
+        shell may still perform a wait operation as part of handling a
+        SIGCHLD for the process.
+
+
+Submitting the project for grading:
+
+The project should compile and link as p3.
+
+You should turnin a tar file containing all of the required files.
+
+To build the project, I will cd to my directory containing your files
+and simply type:
+
+    rm -rf p3
+    rm -rf *.o
+    make

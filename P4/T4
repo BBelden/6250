@@ -1,0 +1,21 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt set limits to 3s 999mb
+lim 3 999
+prt -
+
+prt run more than 3s and get killed
+./TIMEPGM 7
+prt -
+
+prt run more than 3s and get killed AGAIN
+./TIMEPGM 7
+prt -
+EOF
+
+## ---------------------
+
+p3 < TEMPIN
+
+# rm -f TEMPIN

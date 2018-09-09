@@ -1,0 +1,7 @@
+#!/bin/sh
+
+./p5c system64 5588 3  /nfshome/rbutler/public/courses/aos/TIMEPGM 8
+
+echo
+echo "ran TIMEPGM (should NOT see its end msg) --------"
+echo

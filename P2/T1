@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt run date
+date
+prt -
+
+prt run date (fpn)
+/bin/date
+prt -
+
+prt run TIMEPGM
+./TIMEPGM  1.1
+prt -
+
+EOF
+
+## ---------------------
+
+p2 < TEMPIN
+
+# rm -f TEMPIN

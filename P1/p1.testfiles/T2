@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+
+prt witch date test ----
+witch date                 # this is a comment
+prt witch yes test ----    # this is a comment
+witch yes
+
+exit
+
+prt should NOT see this
+EOF
+
+## ---------------------
+
+$1/p1 < TEMPIN
+
+# rm -f TEMPIN

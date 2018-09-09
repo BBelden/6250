@@ -1,0 +1,117 @@
+#fork exec wait
+
+prt T1
+prt run date
+prt date
+#date
+prt -
+
+prt run date (fpn)
+prt /bin/date
+#/bin/date
+prt -
+
+prt run TIMEPGM
+# compile a copy of timepgm
+prt ./TIMEPGM 1.1
+#./TIMEPGM 1.1 #relative path
+prt -
+prt end T1
+
+prt ====================
+
+prt T2
+prt run pipe
+prt /bin/ls -1 /usr | grep lib
+#/bin/ls -1 /usr | grep lib
+prt -
+prt end T2
+
+prt ====================
+
+prt T3
+prt run bkgnd
+prt ./TIMEPGM 2 &
+#./TIMEPGM 2 &
+prt -
+
+prt running
+prt running
+prt running
+prt running
+prt running
+prt ./TIMEPGM 3.141592653
+#./TIMEPGM 3.141592653
+prt -
+prt end T3
+
+prt ====================
+
+prt T4
+prt set limits to 3s 4mb
+prt lim 3 4
+#lim 3 4
+prt -
+
+prt run more than 3s and get killed
+prt ./TIMEPGM 7
+#./TIMEPGM 7
+prt -
+
+prt run more than 3s and get killed again
+prt ./TIMEPGM 7
+#./TIMEPGM 7
+prt -
+prt end T4
+
+prt ====================
+
+prt T5
+prt set limites to 999s 4mb
+prt lim 999 4
+#lim 999 4
+prt -
+
+prt run mallocing lots of space
+# compile bigmempgm.c
+prt ./BIGMEMPGM 7
+#./BIGMEMPGM 7
+prt -
+
+prt run mallocing lots of space again
+prt ./BIGMEMPGM 7
+#./BIGMEMPGM 7
+prt -
+prt end T5
+
+prt ====================
+
+prt T6
+prt env for aospath and aoscwd
+prt /usr/bin/printenv
+prt bpb_sh env, not bash env
+#/usr/bin/printenv
+prt -
+
+prt env for foo
+prt envset foo BAR
+prt /usr/bin/printenv
+#envset foo BAR
+#/usr/bin/printenv
+prt -
+prt end T6
+
+prt ====================
+
+prt T7
+prt favor builtin over pgm
+prt howdy there
+prt -
+
+prt run the prt pgm
+#./prt
+prt -
+prt end T7
+
+
+

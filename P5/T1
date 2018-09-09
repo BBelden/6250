@@ -1,0 +1,13 @@
+#!/bin/sh
+
+./p5c system64 5588 60  /bin/date
+
+echo
+echo "ran date --------"
+echo
+
+./p5c system64 5588 60  /bin/echo  why me lord
+
+echo
+echo "ran echo --------"
+echo

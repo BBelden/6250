@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./p5c system64 5588 60  /bin/cat /nfshome/rbutler/public/courses/aos/tempcat

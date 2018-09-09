@@ -1,0 +1,59 @@
+
+                        Advanced Operating Systems
+                                 Fall 2016
+
+
+turnin id:  aos_p2
+
+
+Enhance the shell from p1 to support the new facilities described below.
+
+
+-------- Commands Other Than Builtin --------
+In addition to builtin commands, permit the user to execute commands
+that are executable programs which can be located via AOSPATH.  If
+there are multiple commands by the same name use the first one in the
+path.  If a program happens to have the same name as a builtin command,
+use the builtin one.  Note the user can skip use of the path and builtin
+by providing a relative or full pathname.
+
+Execution of programs should be done in a separate process created via
+fork.  The exec system call should also be used in the separate process
+to run the specified program.
+
+By default, the shell should wait for an executed program to run.
+However, if the user places an & at the end of the command, then the shell
+should create the separate process to execute as background, and then
+produce a new prompt for the user to do other things.  The shell should
+print a useful message to the user when a background process terminates.
+
+
+-------- I/O Redirection --------
+The user should also be able to run processes in this manner:
+    p1 | p2   ## which would cause stdout of p1 to go to p2's stdin
+You can use pipe and dup/dup2 to assist in such an operation.
+
+We are NOT supporting < or > type operations at this time.
+
+
+-------- Process Limits --------
+Provide a new builtin command name "lim" which affects any processes 
+created thereafter.  lim takes either no args, or exactly 2 args.
+
+    lim  ## no args; prints the current limits being used
+    lim cputime memory  ## setrlimit CPU or AS
+        lim 3 4  ## (max of 3 seconds cputime and 4 MB of memory)
+
+
+Submitting the project for grading:
+
+The project should compile and link as p2.
+
+You should turnin a tar file containing all of the required files.
+
+To build the project, I will cd to my directory containing your files
+and simply type:
+
+    rm -rf p2
+    rm -rf *.o
+    make

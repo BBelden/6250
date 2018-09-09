@@ -1,0 +1,49 @@
+
+
+                             Advanced Operating Systems
+                                    Fall 2016
+        
+
+turnin code: aos_p5
+
+
+Write a C/C++ program which implements a client/server pair
+of programs that provide the functionality described below.
+
+The client and server should support functionality similar to that
+provided by ssh/sshd or rsh/rhsd.  However, we are not requiring
+that support be provided for full-screen applications such as vi.
+
+The server should accept connections on a port specified as the
+only cmd-line arg.  (It should use setsockopt with the SO_REUSEADDR
+option to make the port reusable.)  The server should then accept
+connections from one or more clients (concurrent server, not
+iterative) and fork and exec each application that is requested.
+Each application should have its time usage restricted based on
+the value of cpu args passed to the server from the client (see
+client description below).  The stdin and stderr of the application
+process does not have to be handled; you may close them if desired.
+The stdout of the application process should be captured by the
+server and delivered to the client for printing.
+
+The client requires a minimum of 4 cmd-line args.
+It should accept these args in the order shown:
+    host on which to connect to server
+    port on which to connect to server
+    max cpu time in seconds usable by remote app (e.g. 6)
+    appname to run via remote server
+    args to appname
+
+
+Submitting the project for grading:
+
+The project's two programs should compile and link as p5s and p5c.
+
+You should turnin a tar file containing all of the required files.
+
+To build the project, I will cd to my directory containing your files
+and simply type:
+
+    rm -rf p5s p5c
+    rm -rf *.o
+    make    ## this one command should cause BOTH programs to be built

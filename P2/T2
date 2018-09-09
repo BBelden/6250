@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt run pipe for lib
+/bin/ls -1 /usr  | grep lib
+prt -
+EOF
+
+## ---------------------
+
+p2 < TEMPIN
+
+# rm -f TEMPIN

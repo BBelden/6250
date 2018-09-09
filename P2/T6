@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt env for aospath and aoscwd
+/usr/bin/printenv 
+prt -
+
+prt env for foo also
+envset foo BAR
+/usr/bin/printenv 
+prt -
+
+EOF
+
+## ---------------------
+
+p2 < TEMPIN
+
+# rm -f TEMPIN

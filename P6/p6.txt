@@ -1,0 +1,38 @@
+
+
+                             Advanced Operating Systems
+                                    Fall 2016
+        
+
+turnin code: aos_p6
+
+
+This program will take a single command-line arg.  If the command-line arg
+is not present, then print an error message and quit.  The arg specifies
+the name of a function to be loaded via the dlopen interface.
+
+You should create a dynamic library that contains two functions that can
+be invoked: p6f1 and p6f2.  The dynamic library should be named libp6.so
+when created by your makefile.  Each function should print its own name
+and the pid of the process in which it is running.
+
+When I type "make", libp6.so should be built first followed by the
+program named p6 which provides dynamic-load access to the library.
+
+To run the program, I will make sure that LD_LIBRARY_PATH is set to 
+the current directory.  Then I will run it by typing commands like:
+    ./p6 p6f1
+    ./p6 p6f2
+    ./p6 not_there
+
+
+Submitting the project for grading:
+
+You should turnin a tar file containing all of the required files.
+
+To build the project, I will cd to my directory containing your files
+and simply type:
+
+    rm -rf *.o
+    rm -rf libp6.so p6 
+    make    ## as described above, this builds libp6.so THEN p6

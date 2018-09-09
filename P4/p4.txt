@@ -1,0 +1,34 @@
+
+                        Advanced Operating Systems
+                                 Fall 2016
+
+
+turnin id:  aos_p4
+
+
+Enhance the shell from p3 to support the new facilities described below.
+
+
+Enhance the shell's capabilities with support for two new builtin commands
+named shmalloc and shmdel:
+
+    shmalloc SHM_NAME SHM_SIZE_IN_MB
+        makes a posix-compatible shared memory area available for subsequent
+        programs to use (mmap and shm_open); note that multiple processes
+        can share the area simultaneously
+    shmdel  SHM_NAME
+        removes the shared memory area (shm_unlink)
+
+
+Submitting the project for grading:
+
+The project should compile and link as p4.
+
+You should turnin a tar file containing all of the required files.
+
+To build the project, I will cd to my directory containing your files
+and simply type:
+
+    rm -rf p4
+    rm -rf *.o
+    make

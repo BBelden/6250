@@ -1,0 +1,65 @@
+
+                        Advanced Operating Systems
+                                 Fall 2016
+
+
+turnin id:  aos_p1
+
+
+Write a C/C++ program that implements a portion your own shell.  It should
+print a prompt which is the concatenation of your login id and the char
+string "_sh> " (note the blank at the end). So, if I were to implement
+the project, the prompt I would print would be "rbutler_sh> " without
+the quotes.  However, the shell should not print a prompt if its stdin
+is not a tty or if it is given a single command-line arg which is a
+file to accept commands from instead.  It is valid to assume that no
+command-line will be more that 64 bytes.
+
+For ease of parsing, you may assume that all command-line values are
+separated by at least one char of white-space and that a single command
+is on a single line.  A # anywhere on the line marks the beginning of
+a comment and thus the end of the line.
+
+The shell should provide these builtin commands:
+   exit (or end-of-file, e.g. cntl-D on tty)
+   set var val  (shell variable - not env)
+   unset var    (shell variable - not env)
+   prt word $var  (use shell's $var if same name in both shell and env)
+   envset VAR VAL
+   envunset VAR
+   envprt (print the entire environment)
+   witch (like which :)  (looks thru AOSPATH for a cmd - see below)
+   pwd
+   cd  (no args -> no change) (one arg may be relative or absolute)
+Builtin commands are executed in the shell's process.  Variables can
+be used on any command-line, but no variable value can contain a $
+that might cause recursive variable interpolation.  Shell variables
+are to be used before env vars if both exist unless otherwise stated.
+A valid value on a command-line might be:
+    cd $HOME/$nextdir    ## assuming both vars have been defined
+where both HOME and nextdir must be interpolated.
+Valid vars consist of alphas, numerics, and underscores, beginning with
+alpha or underscore.
+
+The shell should provide these environment variables at start-up:
+    AOSPATH (default is /bin:/usr/bin)
+    AOSCWD  (current working directory) (cd should cause it to be updated)
+And, those two vars should be the ONLY two at start-up.
+So, I should be able to immediately execute:
+    prt $AOSPATH $AOSCWD
+
+For this project, you do NOT have to execute any commands other than those
+built into the shell.
+
+
+Submitting the project for grading:
+
+The project should compile and link as p1.
+
+You should turnin a tar file containing all of the required files.
+
+To build the project, I will cd to my directory containing your files
+and simply type:
+
+    rm -rf p1 *.o
+    make

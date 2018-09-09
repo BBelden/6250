@@ -1,0 +1,21 @@
+#!/bin/sh
+
+cat > TEMPIN <<EOF
+prt run bkgnd
+./TIMEPGM 2 &
+prt -
+
+prt running
+prt running
+prt running
+prt running
+prt running
+./TIMEPGM 3.14
+prt -
+EOF
+
+## ---------------------
+
+p2 < TEMPIN
+
+# rm -f TEMPIN
